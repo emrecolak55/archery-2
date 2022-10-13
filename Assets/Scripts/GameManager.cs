@@ -3,19 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
+// TODO (2+ Responsibilities)
+// GameManager tries to  manage more than one responsibility : 
+//  - Game Loop (which is its own thing to do! ex. "timer")
+//  - Game State
+//  - Player Data
+//  - UI Management
+// You should split all other responsibilities into their own class
+// GameManager should give order to them and should not do their jobs !
 public class GameManager : MonoBehaviour
 {
+    // TODO (Settings)
     [SerializeField] private float gameLengthSeconds = 10f;
+    // TODO (UI)
     [SerializeField] private Text scoreText;
+    // TODO (UI)
     [SerializeField] private Text timerText;
+    // TODO (UI)
     [SerializeField] GameObject gameStateUI;
 
+    // TODO (State)
     public static bool gameStarted = false;
+    // TODO (PlayerData)
     public static int score;
     private float timer;
+    // TODO (UI)
     private Text gameStateText;
+    // TODO (UI)
     private Animator gameStateTextAnimator;
 
+    // TODO (2+ Responsibilities)
     void Start()
     {
         gameStateText = gameStateUI.GetComponent<Text>();
@@ -30,6 +48,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreBoard();
     }
 
+    // TODO (2+ Responsibilities)
     // Update is called once per frame
     void Update()
     {
@@ -57,18 +76,23 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // TODO (UI) : Should be in an UIManager class
     private void UpdateScoreBoard()
     {
         scoreText.text = score + "Targets"; // 
 
         timerText.text = Mathf.RoundToInt(timer) + "Seconds"; // math func converts float to int
     }
+
+    // TODO (2+ Responsibilities)
     private void StartGame()
     {
         score = 0;
         gameStarted = true; // Starts the game 
         gameStateTextAnimator.SetBool("ShowText", false); // Makes the text disappear
     }
+
+    // TODO (2+ Responsibilities)
     private void EndGame()
     {
         gameStateText.text = "Game Over!\nPress Space to Play";

@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class targetCollision : MonoBehaviour
 {
+    // TODO (2+ Responsibilities)
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Arrow"))
         {
+            // TODO (Logic) : You try to execute a "FallWith" logic which is fine.
+            // However thing is, you should split responsibilities of "Actors"
+            // "Actor-Target" should be responsible for its fall
+            // "Actor-Arrow" should fall with "Actor-Target" while execute its own logic !!!
+            // Solution -> Rename "CloneDestroyer" to "Arrow"
+            //          -> Add "Fall" logic to that class
+            //          -> Call : other.GetComponent<Arrow>().Fall()
             other.transform.parent = transform; // To let it fall with the target
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true; // to stuck to the target
 

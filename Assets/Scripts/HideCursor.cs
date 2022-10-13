@@ -12,6 +12,8 @@ public class HideCursor : MonoBehaviour
         Cursor.visible = false;
     }
 
+    // TODO (Improvement) : Do not leave unused Update() methods.
+    // Unity tries to "update" them !!! It waste CPU source.
     // Update is called once per frame
     void Update()
     {

@@ -47,6 +47,9 @@ public class Shooting : MonoBehaviour
     {
         bowAnimator.SetBool("drawing", false);
 
+        // TODO (Improvement) : Do not Instantiate an Arrow !
+        // You can use Object Pool Pattern for reusable items like Arrows.
+        // Check out this video -> https://www.youtube.com/watch?v=tdSmKaJvCoA
         GameObject arrow = Instantiate(arrowPrefab, arrowTransform.position,arrowTransform.rotation) as GameObject;
         arrow.GetComponent<Rigidbody>().AddForce(arrowTransform.forward * currentArrowForce, ForceMode.Impulse);
     }

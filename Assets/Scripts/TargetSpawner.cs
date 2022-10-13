@@ -45,6 +45,9 @@ public class TargetSpawner : MonoBehaviour
                 float yRandom = Random.Range(yMin, yMax);
                 float zRandom = Random.Range(zMin, zMax);
                 Vector3 randomPos = new Vector3(xRandom, yRandom, zRandom);
+                // TODO (Improvement) : Do not Instantiate an Target !
+                // You can use Object Pool Pattern for reusable items like Targets.
+                // Check out this video -> https://www.youtube.com/watch?v=tdSmKaJvCoA
                 Instantiate(targetPrefab, randomPos, targetPrefab.transform.rotation);
                 totalTargets++;
             }
@@ -70,6 +73,9 @@ public class TargetSpawner : MonoBehaviour
             Collider targetCollider = targets[i].GetComponent<Collider>(); // To prevent unnecessary collisions after arrow hit
             targetCollider.enabled = false;
 
+            // TODO (Improvement) : Do not Destroy an Target !
+            // You can use Object Pool Pattern for reusable items like Targets.
+            // Check out this video -> https://www.youtube.com/watch?v=tdSmKaJvCoA
             Destroy(targets[i], 1f); 
         }
             

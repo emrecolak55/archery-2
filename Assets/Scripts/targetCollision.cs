@@ -13,6 +13,8 @@ public class targetCollision : MonoBehaviour
 
             GetComponent<Rigidbody>().isKinematic = false; // to let the target fall
 
+            GameManager.score++; // Adds 1 to the scoreboard
+
             TargetSpawner.totalTargets--;
             Destroy(gameObject, 1f); // add couroutine here, when multiple arrows collides it still decreases totalTargets
             

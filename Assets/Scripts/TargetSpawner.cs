@@ -18,9 +18,13 @@ public class TargetSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(totalTargets == 0)
+        if(totalTargets == 0 && GameManager.gameStarted)
         {
             SpawnTargets();
+        }
+        if(!GameManager.gameStarted && totalTargets > 0)
+        {
+            DestoryTargets();
         }
     }
 
@@ -51,5 +55,23 @@ public class TargetSpawner : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, spawnArea);
+    }
+
+    void DestoryTargets()
+    {
+        totalTargets = 0;
+
+        GameObject[] targets = GameObject.FindGameObjectsWithTag("Target");
+        for( int i = 0; i < targets.Length; i++)
+        {
+            Rigidbody targetRigidBody = targets[i].GetComponent<Rigidbody>(); // Set rigibody to dynamic so they fall
+            targetRigidBody.isKinematic = false;
+
+            Collider targetCollider = targets[i].GetComponent<Collider>(); // To prevent unnecessary collisions after arrow hit
+            targetCollider.enabled = false;
+
+            Destroy(targets[i], 1f); 
+        }
+            
     }
 }

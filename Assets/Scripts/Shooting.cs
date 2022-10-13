@@ -20,18 +20,27 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0)) // 0 for left mouse button // It checks if it's pressed once
+        if(GameManager.gameStarted)
         {
-            DrawBow();
+            if (Input.GetMouseButtonDown(0)) // 0 for left mouse button // It checks if it's pressed once
+            {
+                DrawBow();
+            }
+            if (Input.GetMouseButton(0)) // Longer it's pressed greater force we apply
+            {
+                PowerUpBow();
+            }
+            if (Input.GetMouseButtonUp(0)) // Longer it's pressed greater force we apply
+            {
+                ReleaseBow();
+            }
+            else if(!GameManager.gameStarted)
+            {
+                bowAnimator.SetBool("drawing", false);
+                currentArrowForce = 0;
+            }
         }
-        if (Input.GetMouseButton(0)) // Longer it's pressed greater force we apply
-        {
-            PowerUpBow();
-        }
-        if (Input.GetMouseButtonUp(0)) // Longer it's pressed greater force we apply
-        {
-            ReleaseBow();
-        }
+        
     }
 
     private void ReleaseBow()

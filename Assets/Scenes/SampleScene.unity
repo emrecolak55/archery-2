@@ -223,8 +223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -0.138}
-  m_SizeDelta: {x: 4.5894, y: 1.2255}
+  m_AnchoredPosition: {x: 0.032, y: -0.138}
+  m_SizeDelta: {x: 5.2032, y: 1.2255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &197528013
 MonoBehaviour:
@@ -259,7 +259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Timer: 3s'
+  m_Text: 'Timer: 10s'
 --- !u!222 &197528014
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -501,6 +501,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &766862655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766862657}
+  - component: {fileID: 766862656}
+  - component: {fileID: 766862658}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &766862656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766862655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b8f65b78820cd4b847841a1c9b5ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLengthSeconds: 10
+  scoreText: {fileID: 558181665}
+  timerText: {fileID: 197528013}
+  gameStateUI: {fileID: 1538798527}
+--- !u!4 &766862657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766862655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &766862658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766862655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858a7be2c23e8684c99c6f08d6ad7021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &881322647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4274226212773336, guid: 83040e23266789242b52edadce6a7d94, type: 3}
@@ -873,7 +933,7 @@ GameObject:
   - component: {fileID: 1538798530}
   - component: {fileID: 1538798529}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Game State UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -887,7 +947,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538798527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1812011279}
@@ -895,8 +955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.61, y: 0}
-  m_SizeDelta: {x: 21.1883, y: 4.6669}
+  m_AnchoredPosition: {x: 0.6945, y: 0.9}
+  m_SizeDelta: {x: 21.3573, y: 5.1091}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1538798529
 Animator:
@@ -980,7 +1040,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press any key to play!
+  m_Text: 'Press any key to play!
+
+'
 --- !u!222 &1538798533
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1002,7 +1064,7 @@ GameObject:
   - component: {fileID: 1812011277}
   - component: {fileID: 1812011276}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: GameStateUI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,7 +1164,7 @@ GameObject:
   - component: {fileID: 1820381330}
   - component: {fileID: 1820381329}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ScoreBoard Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

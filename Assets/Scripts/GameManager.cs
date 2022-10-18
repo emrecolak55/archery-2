@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float gameLengthSeconds = 10f;
-    [SerializeField] private Text scoreText;   // shows score
-    [SerializeField] private Text timerText;  
+
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Text timerText; 
     [SerializeField] GameObject gameStateUI;
 
     public static bool gameStarted = false;

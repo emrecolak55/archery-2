@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections;                // It manages the main game logic
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

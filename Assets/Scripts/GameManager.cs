@@ -1,4 +1,4 @@
-using System.Collections;                // game manager
+using System.Collections;                // Manager of the game 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private float gameLengthSeconds = 10f;
+
     [SerializeField] private Text scoreText;
     [SerializeField] private Text timerText; 
     [SerializeField] GameObject gameStateUI;

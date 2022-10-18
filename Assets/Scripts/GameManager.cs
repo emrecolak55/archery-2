@@ -1,4 +1,4 @@
-using System.Collections;                // It manages the main game logic!!!
+using System.Collections;                // Manager of the game 
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float gameLengthSeconds = 10f;
     [SerializeField] private Text scoreText;   // shows score
-    [SerializeField] private Text timerText;
+    [SerializeField] private Text timerText;  
     [SerializeField] GameObject gameStateUI;
 
     public static bool gameStarted = false;
